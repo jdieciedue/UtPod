@@ -27,6 +27,9 @@ using namespace std;
 
   int UtPod::addSong(Song const &s)
   {
+    if ((s.getSize() <= 0) || (s.getArtist() == "") || (s.getTitle() == "")){
+      return NO_MEMORY;
+    }
     if (s.getSize() > this->getRemainingMemory()){
       return NO_MEMORY;
     }
