@@ -81,8 +81,24 @@ using namespace std;
 
   void UtPod::sortSongList()
   {
-  
-  
+    bool isSorting = 1;
+    SongNode *temp;
+    SongNode *tail = NULL;
+    if (songs == NULL){
+      return;
+    }
+    while (isSorting){
+      isSorting = 0;
+      temp = songs;
+      while (temp->next != tail){
+        if (temp->s > (temp->next)->s){
+          (temp->s).swap(temp->next->s);
+          isSorting = 1;
+        }
+        temp = temp->next;
+      }
+      tail = temp;
+    }
   }
 
   void UtPod::clearMemory()
