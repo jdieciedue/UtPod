@@ -102,8 +102,11 @@ using namespace std;
   int UtPod::getRemainingMemory()
   {
     int remMem = 0;
-
-
+    SongNode *tempNode = songs;
+    while (tempNode != NULL){
+      remMem -=(tempNode->s).getSize();
+      tempNode = tempNode->next;
+    }
     return remMem;
   }
 
