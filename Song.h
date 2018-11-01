@@ -27,6 +27,8 @@ class Song {
    int getSize() const;
    void setSize(int size);
 
+   void swap(Song &songSwap);
+  
    bool operator >(Song const &rhs);
    bool operator <(Song const &rhs);
    bool operator ==(Song const &rhs);
