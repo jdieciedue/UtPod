@@ -39,8 +39,26 @@ using namespace std;
   
   int UtPod::removeSong(Song const &s)
   {
-    return SUCCESS;
-
+    if (songs == NULL){
+      return NOT_FOUND;
+    }else{
+      SongNode *tempSong = songs;
+      if (tempSong->s == s){
+        songs = song->next;
+        delete tempSong;
+        return SUCCESS
+      }
+    }
+    while((tempSong != NULL) && (tempSong->next != NULL)){
+      if (tempSong->next->s == s){
+        SongNode *deleteSong = tempSong->next;
+        tempSong->next = deleteSong->next;
+        delete deleteSong;
+        return SUCCESS:
+      }
+      tempSong = tempSong->next;
+    }
+    return NOT_FOUND:
   }
 
   void UtPod::shuffle()
