@@ -66,8 +66,44 @@ using namespace std;
 
   void UtPod::shuffle()
   {
-
-
+    int songListLength = 0;
+    SongNode *tempNode = songs;
+    while (tempNode != NULL){
+      songListLength++;
+      tempNode = tempNode->next;
+    }
+    if (songListLength <= 1){
+      return;
+    }
+    if (songListLength == 2){
+      tempNode = songs;
+      songs = songs->next;
+      songs->next = tempNode;
+      tempNode->next = NULL;
+      return;
+    }
+    SongNode* songArray[songListLength];
+    tempNode = songs;
+    int index = 0;
+    while (tempNode != NULL){
+      songArray[index] = tempNode;
+      index++;
+      tempNode = tempNode->next;
+    }
+    int r = rand();
+    for (int i = songListLength - 1; i > 0; i--){
+      r = rand()%i;
+      SongNode *tempNode = songArray[i];
+      songArray[i] = songArray[r];
+      songArray[r] = tempNode;
+    }
+    songs = songArray[0];
+    tempNode = songs;
+    for (int i = 0; i < songListLength; i++){
+      tempNode = songArray[i];
+      tempNode->next = songArray[i+1];
+    }
+    tempNode->next = NULL:
   }
 
   void UtPod::showSongList()
