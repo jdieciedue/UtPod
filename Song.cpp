@@ -59,7 +59,13 @@ using namespace std;
   {
     songSize = size;
   }
-
+  
+  void Song::swap(Song &songSwap){
+    Song temp = songSwap;
+    songSwap = *this;
+    *this = temp;
+  }
+  
   bool Song::operator >(Song const &rhs)
   {
     if (songArtist.compare(rhs.songArtist) < 0){
