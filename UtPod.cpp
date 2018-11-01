@@ -69,9 +69,11 @@ using namespace std;
 
   void UtPod::showSongList()
   {
-
-
-
+    SongNode *tempNode = songs;
+    while(tempNode != NULL){
+      cout << (tempNode->s).getTitle() << ", " << (tempNode->s).getArtist() << ", " << (tempNode->s).getSize() << endl;
+      tempNode = tempNode->next;
+    }
   }
 
   void UtPod::sortSongList()
@@ -82,8 +84,16 @@ using namespace std;
 
   void UtPod::clearMemory()
   {
-
-
+    SongNode *tempNode = songs;
+    if (tempNode == NULL){
+      return;
+    }
+    while (tempNode->next != NULL){
+      songs = songs->next;
+      delete tempNode;
+      tempNode = songs;
+    }
+    delete tempNode;
   }
 
   int UtPod::getRemainingMemory()
