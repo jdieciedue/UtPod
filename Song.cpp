@@ -62,12 +62,44 @@ using namespace std;
 
   bool Song::operator >(Song const &rhs)
   {
-    return true;
+    if (songArtist.compare(rhs.songArtist) < 0){
+      return false;
+    }else{
+      if (songArtist.compare(rhs.songArtist) > 0){
+        return true;
+      }else{
+        if(songTitle.compare(rhs.songTitle) < 0){
+          return false;
+        }else{
+          if (songTitle.compare(rhs.songTitle) > 0){
+            return true;
+          }else{
+            return (songSize > rhs.songSize);
+          }
+        }
+      }
+    }
   }
 
   bool Song::operator <(Song const &rhs)
   {
-    return true;
+    if (songArtist.compare(rhs.songArtist) > 0){
+      return false;
+    }else{
+      if (songArtist.compare(rhs.songArtist) < 0){
+        return true;
+      }else{
+        if(songTitle.compare(rhs.songTitle) > 0){
+          return false;
+        }else{
+          if (songTitle.compare(rhs.songTitle) < 0){
+            return true;
+          }else{
+            return (songSize < rhs.songSize);
+          }
+        }
+      }
+    }
   }
 
   bool Song::operator ==(Song const &rhs)
