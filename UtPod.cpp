@@ -113,5 +113,5 @@ using namespace std;
   UtPod::~UtPod()
   {
     // cout << "In UtPod destructor" << endl;
-  
+    this->clearMemory();
   }
