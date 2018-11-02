@@ -4,6 +4,8 @@
 */
 
 #include<iostream>
+#include<cstlib>
+#include<ctime>
 #include "UtPod.h"
 #include "Song.h"
 
@@ -90,6 +92,8 @@ using namespace std;
       index++;
       tempNode = tempNode->next;
     }
+    unsigned int currentTime = (unsigned)time(0);
+    srand(currentTime);
     int r = rand();
     for (int i = songListLength - 1; i > 0; i--){
       r = rand()%i;
