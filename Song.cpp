@@ -11,16 +11,9 @@ using namespace std;
 
   Song::Song()
   {
-    songTitle = NO_TITLE;
-    songArtist = NO_ARTIST;
-    songSize = MIN_SONG_SIZE;
-  }
-
-  Song::Song(string artist, string title)
-  {
-    songArtist = artist;
-    songTitle = title;
-    songSize = MIN_SONG_SIZE;
+    songTitle = "";
+    songArtist = "";
+    songSize = 0;
   }
 
   Song::Song(string artist, string title, int size)
